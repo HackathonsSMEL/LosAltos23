@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "ML Highlighter",
+    "name": "Read Better",
     "description": "Uses ML to highlight important parts of passages",
     "version": "1.0",
     "background": {
