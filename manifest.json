@@ -4,11 +4,11 @@
     "description": "Uses ML to highlight important parts of passages",
     "version": "1.0",
     "background": {
-        "service_worker": "getpassage.js"
+        "service_worker": "js/getpassage.js"
   
       },
     "action": {
-      "default_popup": "popup.html"
+      "default_popup": "popup/popup.html"
       
     },
     "icons": {

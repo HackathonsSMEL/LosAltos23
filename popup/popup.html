@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ReadBetter</title>
-  <link rel="stylesheet" type="text/css" href="popup.css">
-    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+ <title>ReadBetter</title>
+ <link rel="stylesheet" type="text/css" href="popup.css">
+   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-  <script src="popup.js"></script>
-  <div id="popup-window">
-    <h1>Make reading immersive and practical!</h1>
-    <button id="startAnalysis">Analyze</button>
-    <div id="formatting-options">
-      <p>Select your formatting options:</p>
-      <div class="option">
-        <label>
-          <input type="checkbox" name="formatting-option" value="highlight"> Highlight
-        </label>
-        <input type="color" classname="formatting-color" data-formatting-option="highlight">
-      </div>
-      <div classname="option">
-        <label>
-          <input type="checkbox" name="formatting-option" value="underline"> Underline
-        </label>
-        <input type="color" classname="formatting-color" data-formatting-option="underline">
-      </div>
-      <div classname="option">
-        <label>
-          <input type="checkbox" name="formatting-option" value="bold"> Bold
-        </label>
-        <input type="color" classname="formatting-color" data-formatting-option="bold">
-      </div>
-      <button id = "applyButton">Apply</button>
-    </div>
-    <div id="cool-elements"></div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
-  <script src="popup.js"></script>
+ <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+ <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+ <script src="popup.js"></script>
+ <script src="getpassage.js"></script>
+ <div id="popup-window">
+   <h1 id="title">ReadBetter</h1>
+   <h1>Make reading immersive and practical!</h1>
+   <button id="startAnalysis">Analyze</button>
+   <div id="formatting-options">
+     <p style = "color: rgb(19, 19, 19);"><mark style="background-color:rgb(169, 165, 165)">Select Formatting:</mark></p>
+     <div class="option">
+       <label>
+         <input type="checkbox" name="formatting-option" value="highlight"><mark style="background-color:rgb(204, 204, 63)">Highlight</mark>
+       </label>
+       <input type="color" classname="formatting-color" data-formatting-option="highlight">
+     </div>
+     <div class="option">
+       <label>
+         <input type="checkbox" name="formatting-option" value="underline"><u>Underline</u>
+       </label>
+       <input type="color" classname="formatting-color" data-formatting-option="underline">
+     </div>
+     <div class="option">
+       <label>
+         <input type="checkbox" name="formatting-option" value="bold"><b>Boldingss</b>
+       </label>
+       <input type="color" classname="formatting-color" data-formatting-option="bold">
+     </div>
+     <button id = "applyButton">Apply</button>
+   </div>
+   <div id="cool-elements"></div>
+ </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+ <script src="popup.js"></script>
 </body>
 </html>
+
+
 
 
