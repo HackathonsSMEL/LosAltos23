@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "ML Highlighter",
+    "version": "1.0",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
+    "action": {
+      "default_popup": "popup.html"
+    }
+  }
+  
