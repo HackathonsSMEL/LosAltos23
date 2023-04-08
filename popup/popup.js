@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 const applyButton = document.getElementById("applyButton");
 applyButton.addEventListener("click", function() {
   function changeParagraphText() {
@@ -8,7 +9,7 @@ applyButton.addEventListener("click", function() {
   // Call the function to change the paragraph text to "hello"
   changeParagraphText();
 });
-
+});
 
   /*const formattingText = document.getElementById("formatting-text");
   const highlightCheckbox = document.querySelector("input[value='highlight']");
