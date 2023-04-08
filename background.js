@@ -1,8 +1,9 @@
 const mainP = require('./getpassage.js');
+const api = require('./config.js');
 const { Configuration, OpenAIApi } = require("openai");
 const passage = mainP
 const configuration = new Configuration({
-apiKey: "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",
+apiKey: api,
 });
 const openai = new OpenAIApi(configuration);
 
