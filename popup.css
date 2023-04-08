@@ -1,64 +1,79 @@
 body {
-   background-color: #769fca;
-   color: #fff;
-   font-family: "Courier New", Courier, monospace;
-   font-weight: bold;
- }
-  #popup-window {
-   margin: auto;
-   padding: 50px;
-   text-align: center;
- }
-  h1 {
-   font-size: 18px;
-   margin-top: 0;
-   margin-bottom: 20px;
- }
-  button {
-   background-color: rgb(83, 135, 213);
-   color: #e0e0e0;
-   border: none;
-   padding: 10px 16px;
-   border-radius: 5px;
-   cursor: pointer;
-   display: inline-block;
-   font-size: 16px;
-   border-radius: 12px;
-   transition: 0.7s;
- }
-  button:hover {
-   background-color: #0b2848;
-   color: #e0e0e0;
-   transition: 0.7s;
- }
-  button.animate {
+  background-color: #769fca;
+  color: #fff;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+ #popup-window {
+  margin: auto;
+  max-height: 200px;
+  max-width: 300px;
+  padding: 20px;
+  text-align: center;
+}
+ h1 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+ button {
+  background-color: rgb(83, 135, 213);
+  color: #e0e0e0;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  transition: 0.7s;
+}
+ button:hover {
+  background-color: #0b2848;
+  color: #e0e0e0;
+  transition: 0.7s;
+}
+ button.animate {
+  animation: shake 1s ease;
+}
+ @keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+#startAnalysis {
    animation: shake 1s ease;
+}
+#applyButton {
+   animation: shake 1s ease;
+   align-items: center;
+}
+ #formatting-options {
+  margin-top: 20px;
+  text-align: left;
+}
+.option label {
+   display: flex;
+   flex-direction: row-reverse;
+   align-items: center;
+   margin: 10px;
  }
-  @keyframes shake {
-   0% { transform: rotate(0deg); }
-   25% { transform: rotate(10deg); }
-   50% { transform: rotate(-10deg); }
-   75% { transform: rotate(5deg); }
-   100% { transform: rotate(0deg); }
- }
-  #formatting-options {
-   margin-top: 20px;
-   text-align: left;
- }
-  .option {
-   margin-bottom: 10px;
- }
-  label {
-   display: inline-block;
-   width: 100px;
-   font-weight: bold;
- }
-  input[type="radio"] {
+ .option input[type="checkbox"] {
    margin-right: 10px;
  }
-  input[type="color"] {
-   width: 30px;
-   height: 30px;
-   border: none;
-   border-radius: 50%;
- } 
+  label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+ input[type="radio"] {
+  margin-right: 10px;
+}
+ input[type="color"] {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+}

@@ -1,34 +1,21 @@
-const PopupWindow = () => {
- return (
-   <div id="popup-window">
-     <h1>Make reading immersive and practical!</h1>
-     <button id="startAnalysis">Analyze</button>
-     <div id="formatting-options">
-       <p>Select your formatting options:</p>
-       <div className="option">
-         <label>
-           <input type="radio" name="formatting-option" value="highlight" /> Highlight
-         </label>
-         <input type="color" className="formatting-color" data-formatting-option="highlight" />
-       </div>
-       <div className="option">
-         <label>
-           <input type="radio" name="formatting-option" value="underline" /> Underline
-         </label>
-         <input type="color" className="formatting-color" data-formatting-option="underline" />
-       </div>
-       <div className="option">
-         <label>
-           <input type="radio" name="formatting-option" value="bold" /> Bold
-         </label>
-         <input type="color" className="formatting-color" data-formatting-option="bold" />
-       </div>
-     </div>
-   </div>
- );
-};
+// JavaScript
+const applyButton = document.getElementById("applyButton");
+applyButton.addEventListener("click", applyChanges);
 
 
-ReactDOM.render(<PopupWindow />, document.getElementById('root'));
-
-
+function applyChanges() {
+ const options = document.getElementsByName("formatting-option");
+ options.forEach(option => {
+   const value = option.value;
+   const isChecked = option.checked;
+   const colorInput = document.querySelector(`input[data-formatting-option="${value}"]`);
+   if (isChecked) {
+     // Apply changes for the checked option
+     const color = colorInput.value;
+     console.log(`Apply ${value} with color ${color}`);
+   } else {
+     // Remove changes for the unchecked option
+     console.log(`Remove ${value} changes`);
+   }
+ });
+}
