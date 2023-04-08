@@ -1,21 +1,39 @@
-// JavaScript
 const applyButton = document.getElementById("applyButton");
-applyButton.addEventListener("click", applyChanges);
+applyButton.addEventListener("click", function() {
+  function changeParagraphText() {
+    const myParagraph = document.getElementById("my-paragraph");
+    myParagraph.innerText = "hello";
+  }
+  
+  // Call the function to change the paragraph text to "hello"
+  changeParagraphText();
+});
 
 
-function applyChanges() {
- const options = document.getElementsByName("formatting-option");
- options.forEach(option => {
-   const value = option.value;
-   const isChecked = option.checked;
-   const colorInput = document.querySelector(`input[data-formatting-option="${value}"]`);
-   if (isChecked) {
-     // Apply changes for the checked option
-     const color = colorInput.value;
-     console.log(`Apply ${value} with color ${color}`);
-   } else {
-     // Remove changes for the unchecked option
-     console.log(`Remove ${value} changes`);
-   }
- });
-}
+  /*const formattingText = document.getElementById("formatting-text");
+  const highlightCheckbox = document.querySelector("input[value='highlight']");
+  const underlineCheckbox = document.querySelector("input[value='underline']");
+  const boldCheckbox = document.querySelector("input[value='bold']");
+  let formattedText = ":";
+  //let formattedText = "Formatting:";
+  let formattingStyles = "";
+  if (highlightCheckbox.checked) {
+    const highlightColor = document.querySelector("[data-formatting-option='highlight']").value;
+    formattingStyles += `background-color:${highlightColor};`;
+  }
+  if (underlineCheckbox.checked) {
+    const underlineColor = document.querySelector("[data-formatting-option='underline']").value;
+    formattingStyles += `text-decoration:underline ${underlineColor};`;
+  }
+  if (boldCheckbox.checked) {
+    const textColor = document.querySelector("[data-formatting-option='bold']").value;
+    formattingStyles += `color:${textColor};font-weight:bold;`;
+  }
+  if (formattingStyles) {
+    let formattedText = "p";
+    //formattedText = `<span style="${formattingStyles}">${formattedText}</span>`;
+  }
+  formattingText.innerHTML = formattedText;
+  //formattingText.innerHTML = formattedText;
+  console.log(formattedText);
+});*/
