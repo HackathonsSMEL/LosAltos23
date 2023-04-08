@@ -3,6 +3,8 @@ body {
   color: #fff;
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
+  width: 800px;
+  height: 600px;
 }
  #popup-window {
   margin: auto;
