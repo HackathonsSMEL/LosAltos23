@@ -9,9 +9,10 @@ document.addEventListener('mousedown', clearHighlight);
 function highlightText() {
   // Get the highlighted text and append it to the existing highlightedText string
   var text = window.getSelection().toString();
+  if (text != "") {
+    var text = document.getSelection().text;
+  }
     highlightedText += text; // add a newline character to separate multiple highlights
-    // Save the string to Chrome storage
-    chrome.storage.local.set({'highlightedText': highlightedText});
 }
 highlightText();
 module.exports = highlighhtedText;
@@ -21,7 +22,6 @@ module.exports = highlighhtedText;
 function clearHighlight() {
   // Clear the highlightedText string and remove it from Chrome storage
   highlightedText = '';
-  chrome.storage.local.remove('highlightedText');
 }
 
 /* 
