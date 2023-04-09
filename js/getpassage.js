@@ -14,7 +14,7 @@ function highlightText() {
     chrome.storage.local.set({'highlightedText': highlightedText});
 }
 highlightText();
-module.exports = highlighhtedText;
+module.exports = highlightedText;
 
 
 // Function to handle mousedown event
