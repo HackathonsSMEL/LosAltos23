@@ -1,15 +1,6 @@
-const mainP = require('./main.js');
-
-const formattingText = document.getElementById("formatting-text");
-const hcheck = document.getElementById("h");
-const ucheck = document.getElementById("u");
-const bcheck = document.getElementById("b");
-const highlightCheckbox = document.querySelector("input[value='highlight']");
-const underlineCheckbox = document.querySelector("input[value='underline']");
-const boldCheckbox = document.querySelector("input[value='bold']");
 
 
-function format(passageText) {
+document.addEventListener("DOMContentLoaded", function() {
   const formattingText = document.getElementById("formatting-text");
   const hcheck = document.getElementById("h");
   const ucheck = document.getElementById("u");
@@ -17,8 +8,8 @@ function format(passageText) {
   const highlightCheckbox = document.querySelector("input[value='highlight']");
   const underlineCheckbox = document.querySelector("input[value='underline']");
   const boldCheckbox = document.querySelector("input[value='bold']");
-  formattingText = i;
-  formattingStyles = "";
+  let formattedText = "Formatting:";
+  let formattingStyles = "";
   const updateFormatting = () => {
     if (highlightCheckbox.checked) {
       const highlightColor = document.querySelector("[data-formatting-option='highlight']").value;
@@ -65,20 +56,4 @@ function format(passageText) {
       formattingText.innerHTML = formattedText;
     }
   });
-}
-
-
-document.addEventListener("DOMContentLoaded", function() {
-const analyzeButton = document.getElementById("analyzeButton");
-analyzeButton.addEventListener("click", function() {
-  detailedList = mainP;
-  const passageText = document.getElementById("passage-text").innerHTML;
-  let formattedText = passageText;
-  for (const word of detailedList) {
-    const regex = new RegExp(`\\b${word}\\b`, 'gi');
-    formattedText = formattedText.replace(regex, match => {
-      return format(match);
-    });
-  }
-  document.getElementById("passage-text").innerHTML = formattedText;
-})});
+});
