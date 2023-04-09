@@ -1,3 +1,5 @@
+import './main.js';
+
 const formattingText = document.getElementById("formatting-text");
 const hcheck = document.getElementById("h");
 const ucheck = document.getElementById("u");
