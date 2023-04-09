@@ -1,11 +1,9 @@
 # LosAltos23
 Project for Los Altos Hacks 2023
 
-This project is a google extension that recognizes the important parts of an online passage or article using an ML software and highlights, underlines, or bolds those important parts. 
+Read Better is a google extension that identifies the most important details of any highlighted text. It operates as a javascript-based app with a very simple UI to fit for any visual needs (common symptom of ADHD). It uses a language-based machine learning model to analyze the highlighted text to identify what details are most useful and important to understand, helping to retain the main ideas and details.
 
-This project was inspired by struggles we face as students in this growing online world, where we are often reading articles online and struggle to retain important information in such long passages. 
-
-This tool allows us to easily find and absord the most important parts of an online passage through machine learning technology that identifies the key words and details throughout the passage as a whole.
+ADHD is a prevalent disability in the world, with more than 3.5% of the world's population suffering from the disorder. One of our team members is part of this 3.5%, dealing with the effects of an ADHD-ridden education and lifestyle. One of his biggest problems in learning is focused reading, where he finds himself unable to focus on one text for a long period of time. We designed Read Better to help him - along the millions of others across the world - have the same level of focused education that the rest of us are so lucky to have. 
 
 We believe that this tool can be applicable to all kinds of students and people, and will be useful for students of all levels of learning. In the future, we plan to polish the detail selection and user experience as a whole.
 
