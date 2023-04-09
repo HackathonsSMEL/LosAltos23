@@ -14,11 +14,17 @@ const getPostTitles = async () => {
 			postTitles.push(postTitle)
 		});
 
-		return postTitles;
+		return postTitles[0];
 	} catch (error) {
 		throw error;
 	}
 };
 
+
 getPostTitles()
-    .then((postTitles) => console.log(postTitles));
+  .then((postTitles) => {
+    const titlesArray = postTitles;
+    console.log(titlesArray);
+    module.exports = titlesArray;
+  });
+

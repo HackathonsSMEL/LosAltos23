@@ -1,6 +1,8 @@
-//const mainP = require('./getpassage.js');
-const mainP = "1";
+/* const mainP = require('./getpassage.js');
+const key_words = require('./main.js'); */
 
+const mainP = "ewifjewpf";
+let key_words = ['ew']
 /*
 function format(passageText) {
   const formattingText = document.getElementById("formatting-text");
@@ -103,17 +105,23 @@ function format(match) {
 document.addEventListener("DOMContentLoaded", function() {
 const analyzeButton = document.getElementById("analyzeButton");
 analyzeButton.addEventListener("click", function() {
-  detailedList = mainP;
-  const passageTextElement = document.getElementById("passage-text");
-  const passageText = passageTextElement.innerHTML;
-  let formattedText = passageText;
+  let formattedPassage = '';
+  let lastIndex = 0;
 
-  for (const word of detailedList) {
+  for (const word of key_words) {
     const regex = new RegExp(`\\b${word}\\b`, 'gi');
-    formattedText = formattedText.replace(regex, match => {
-      return format(match);
-    });
+    const match = mainP.match(regex);
+
+    if (match) {
+      const formattedMatch = format(match[0]);
+      const startIndex = mainP.indexOf(match[0], lastIndex);
+      const formattedPart = mainP.substring(lastIndex, startIndex) + formattedMatch;
+
+      formattedPassage += formattedPart;
+      lastIndex = startIndex + match[0].length;
+    }
   }
 
-  passageTextElement.innerHTML = formattedText;
+  formattedPassage += mainP.substring(lastIndex);
+  return `<p>${formattedPassage}</p>`;
 })});
