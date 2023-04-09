@@ -103,25 +103,41 @@ function format(match) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-const analyzeButton = document.getElementById("analyzeButton");
-analyzeButton.addEventListener("click", function() {
-  let formattedPassage = '';
-  let lastIndex = 0;
+  const analyzeButton = document.getElementById("analyzeButton");
+  analyzeButton.addEventListener("click", function() {
+    let formattedPassage = '';
+    let lastIndex = 0;
 
-  for (const word of key_words) {
-    const regex = new RegExp(`\\b${word}\\b`, 'gi');
-    const match = mainP.match(regex);
+    for (const word of key_words) {
+      const regex = new RegExp(`\\b${word}\\b`, 'gi');
+      const match = mainP.match(regex);
 
-    if (match) {
-      const formattedMatch = format(match[0]);
-      const startIndex = mainP.indexOf(match[0], lastIndex);
-      const formattedPart = mainP.substring(lastIndex, startIndex) + formattedMatch;
+      if (match) {
+        const formattedMatch = format(match[0]);
+        const startIndex = mainP.indexOf(match[0], lastIndex);
+        const formattedPart = mainP.substring(lastIndex, startIndex) + formattedMatch;
 
-      formattedPassage += formattedPart;
-      lastIndex = startIndex + match[0].length;
+        formattedPassage += formattedPart;
+        lastIndex = startIndex + match[0].length;
+      }
     }
-  }
 
-  formattedPassage += mainP.substring(lastIndex);
-  return `<p>${formattedPassage}</p>`;
-})});
+    formattedPassage += mainP.substring(lastIndex);
+    const formattedHTML = `<p>${formattedPassage}</p>`;
+
+    // Get the current tab's ID
+    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+      const tabId = tabs[0].id;
+
+      // Insert the CSS to apply the styles to the formatted HTML
+      chrome.tabs.insertCSS(tabId, {
+        code: `p { font-size: 16px; } span { ${formattingStyles.join(';')} }`
+      });
+
+      // Inject the formatted HTML into the current tab
+      chrome.tabs.executeScript(tabId, {
+        code: `document.body.innerHTML = '${formattedHTML}';`
+      });
+    });
+  });
+});
