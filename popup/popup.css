@@ -1,9 +1,9 @@
 
 body {
-  border: 1px solid black;
-  background-color: #769fca;
+  border: 3px solid black;
+  background-color: white;
   color: #fff;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Bree Serif", Courier, monospace;
   width: 300px;
   height: 400px;
   display: flex;
@@ -23,12 +23,13 @@ body {
   align-self: top;
  }
  h1 {
+  color: black;
   font-size: 16px;
   margin-top: 0;
   margin-bottom: 20px;
  }
  button {
-  background-color: rgb(83, 135, 213);
+  background-color: rgb(0, 0, 0);
   color: #e0e0e0;
   border: none;
   padding: 10px 16px;
@@ -56,7 +57,7 @@ body {
  }
 
  #applyButton {
-  animation: shake 1s ease;
+  animation: shake .5s ease;
 }
 
  #formatting-options {
@@ -81,10 +82,19 @@ body {
  
  .option input[type="checkbox"] {
   display: flex;
+  border: 1px black;
   align-items: center;
   width: 200px;
   margin: 10px;
   vertical-align: middle;
+ }
+
+ .option input[type="formatting-text"] {
+  color: black
+ }
+
+ .option input[type="label"] {
+  color: black
  }
 
  .option input[type="color"] {
@@ -93,13 +103,12 @@ body {
   border: none;
   border-radius: 50%;
   vertical-align: middle;
-  margin-left: 10px;
-  margin-right: 40px;
+  margin-left: 175px;
   cursor: pointer;
   padding: 0;
   appearance: none;
   vertical-align: middle;
-  background-color: #777; /* replace with desired default color */
+  background-color: #000; /* replace with desired default color */
 }
 
 .option input[type="color"]::-webkit-color-swatch-wrapper {
