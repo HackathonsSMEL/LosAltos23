@@ -39,3 +39,4 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 const mainp = "I resisted all the way: a new thing for me, and a circumstance which greatly strengthened the bad opinion Bessie and Miss Abbot were disposed to entertain of me. The fact is, I was a trifle beside myself; or rather OUT of myself, as the French would say: I was conscious that a moment's mutiny had already rendered me liable to strange penalties, and, like any other rebel slave, I felt resolved, in my desperation, to go all lengths."
 module.exports = mainp;
 }
+export {getpass} 

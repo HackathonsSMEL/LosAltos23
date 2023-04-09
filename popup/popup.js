@@ -1,8 +1,8 @@
-const getpassage = require("js/getpassage.js");
+import {getpass} from "js/getpassage.js";
 document.addEventListener("DOMContentLoaded", function() {
 const applyButton = document.getElementById("applyButton");
 applyButton.addEventListener("click", function() {
-  getpassage.getpass();
+  getpass();
   const formattingText = document.getElementById("formatting-text");
   const highlightCheckbox = document.querySelector("input[value='highlight']");
   const underlineCheckbox = document.querySelector("input[value='underline']");
