@@ -19,7 +19,7 @@ body {
  }
  title {
   font-size: 22px;
-  text-decoration-color: #0b2848;
+  text-decoration-color: #b8cee4;
   align-self: top;
  }
  h1 {
@@ -39,11 +39,14 @@ body {
   font-size: 16px;
   border-radius: 12px;
   transition: 0.7s;
+  animation: shake 1s ease;
  }
  button:hover {
-  background-color: #0b2848;
+  background-color: #5a697b;
   color: #e0e0e0;
-  transition: 0.7s;
+  transition: 0.2s;
+  
+  animation: shake 1s ease;
  }
  button.animate {
   animation: shake 1s ease;
