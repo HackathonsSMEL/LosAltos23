@@ -34,7 +34,7 @@
     });
     
     });  */
-    const mainp = "My name is Sanjay Mukhyala, and I am the president and founder of San Mateo High School’s computer science club (SMHS Codes). We are a club of passionate coders of varying skill levels who meet once a week to learn about computer science, participate in fun activities, and code our own unique projects. I started this club in the fall of 2022 and we’ve experienced great success in several outreach events across the year and school-wide activities."
+    const mainp = "Do not share your API key with others, or expose it in the browser or other client-side code. In order to protect the security of your account, OpenAI may also automatically rotate any API key that we've found has leaked publicly."
     module.exports = mainp;
     
     
