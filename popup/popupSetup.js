@@ -1,14 +1,14 @@
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  const formattingText = document.getElementById("formatting-text");
+  const formattingText = document.getElementById("changing-text");
   const hcheck = document.getElementById("h");
   const ucheck = document.getElementById("u");
   const bcheck = document.getElementById("b");
   const highlightCheckbox = document.querySelector("input[value='highlight']");
   const underlineCheckbox = document.querySelector("input[value='underline']");
   const boldCheckbox = document.querySelector("input[value='bold']");
-  let formattedText = "Formatting:";
+  let formattedText = "Make reading immersive and practical!";
   let formattingStyles = "";
   const updateFormatting = () => {
     if (highlightCheckbox.checked) {
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (highlightCheckbox.checked || underlineCheckbox.checked || boldCheckbox.checked) {
       updateFormatting();
     } else {
-      formattedText = "Formatting:";
+      formattedText = "Make reading immersive and practical!";
       formattingStyles = "";
       formattingText.innerHTML = formattedText;
     }
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (highlightCheckbox.checked || underlineCheckbox.checked || boldCheckbox.checked) {
       updateFormatting();
     } else {
-      formattedText = "Formatting:";
+      formattedText = "Make reading immersive and practical!";
       formattingStyles = "";
       formattingText.innerHTML = formattedText;
     }
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (highlightCheckbox.checked || underlineCheckbox.checked || boldCheckbox.checked) {
       updateFormatting();
     } else {
-      formattedText = "Formatting:";
+      formattedText = "Make reading immersive and practical!";
       formattingStyles = "";
       formattingText.innerHTML = formattedText;
     }
