@@ -1,4 +1,5 @@
-const mainP = require('./getpassage.js');
+//const mainP = require('./getpassage.js');
+const mainP = "1";
 
 /*
 function format(passageText) {
