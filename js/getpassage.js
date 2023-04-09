@@ -1,10 +1,34 @@
+const axios = require('axios');
+const cheerio = require('cheerio');
 
+const getPostTitles = async () => {
+	try {
+		const { data } = await axios.get(
+			'https://www.gutenberg.org/files/1260/1260-h/1260-h.htm'
+		);
+		const $ = cheerio.load(data);
+		const postTitles = [];
 
-module.exports = highlightedText;
+		$('div > p').each((_idx, el) => {
+			const postTitle = $(el).text()
+			postTitles.push(postTitle)
+		});
 
-
+		return postTitles[0];
+	} catch (error) {
+		throw error;
+	}
+};
 /* 
-    const mainp = "Do not share your API key with others, or expose it in the browser or other client-side code. In order to protect the security of your account, OpenAI may also automatically rotate any API key that we've found has leaked publicly."
-    module.exports = mainp; */
-    
-    
+getPostTitles()
+.then((postTitles) => {
+  const titlesArray = postTitles;
+  console.log(titlesArray);
+}); */
+
+module.exports = getPostTitles;
+
+
+
+   
+

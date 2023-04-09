@@ -25,7 +25,7 @@ const highlightText=()=> {
 // Add event listeners to daetect mouseup and mousedown events
 document.addEventListener('mouseup', highlightText); */
 
-const getPostTitles = require('./js/test.js');
+const getPostTitles = require('./js/getpassage.js');
 
 let passage;
 
@@ -53,7 +53,7 @@ async function return_important() {
   return_important();
 	// Use the postTitle value here
 }).catch((error) => {
-	console.error(error);
+	console.error(error);migg
 });
 
 
