@@ -23,7 +23,8 @@
       "activeTab",
       "tabs",
       "storage",
-      "webRequest"
+      "webRequest",
+      "scripting"
   ]
   }
   
