@@ -1,7 +1,7 @@
 # LosAltos23
 Project for Los Altos Hacks 2023
 
-This project is a google extension that recognizes the important parts of an online passage or article using an ML software and gives the user the option to either highlight, underline, or bold those important parts. 
+This project is a google extension that recognizes the important parts of an online passage or article using an ML software and highlights, underlines, or bolds those important parts. 
 
 This project was inspired by struggles we face as students in this growing online world, where we are often reading articles online and struggle to retain important information in such long passages. 
 
