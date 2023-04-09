@@ -27,8 +27,6 @@ return importantWords;
 //return(completion.data.choices[0].text);
 }
 
-
-
 /* function highlightImportantParts() {
   const text = mainP;
   return_important().then(highlights => {
