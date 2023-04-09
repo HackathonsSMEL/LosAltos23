@@ -1,14 +1,6 @@
 const mainP = require('./main.js');
 
-const formattingText = document.getElementById("formatting-text");
-const hcheck = document.getElementById("h");
-const ucheck = document.getElementById("u");
-const bcheck = document.getElementById("b");
-const highlightCheckbox = document.querySelector("input[value='highlight']");
-const underlineCheckbox = document.querySelector("input[value='underline']");
-const boldCheckbox = document.querySelector("input[value='bold']");
-
-
+/*
 function format(passageText) {
   const formattingText = document.getElementById("formatting-text");
   const hcheck = document.getElementById("h");
@@ -81,4 +73,46 @@ analyzeButton.addEventListener("click", function() {
     });
   }
   document.getElementById("passage-text").innerHTML = formattedText;
+})});
+*/
+
+function format(match) {
+  const formattingStyles = [];
+  const highlightCheckbox = document.querySelector("input[value='highlight']");
+  const underlineCheckbox = document.querySelector("input[value='underline']");
+  const boldCheckbox = document.querySelector("input[value='bold']");
+
+  if (highlightCheckbox.checked) {
+    const highlightColor = document.querySelector("[data-formatting-option='highlight']").value;
+    formattingStyles.push(`background-color:${highlightColor}`);
+  }
+  if (underlineCheckbox.checked) {
+    const underlineColor = document.querySelector("[data-formatting-option='underline']").value;
+    formattingStyles.push(`text-decoration:underline; text-decoration-color:${underlineColor}`);
+  }
+  if (boldCheckbox.checked) {
+    const textColor = document.querySelector("[data-formatting-option='bold']").value;
+    formattingStyles.push(`color:${textColor};font-weight:bold`);
+  }
+
+  const formattedMatch = `<span style="${formattingStyles.join(';')}">${match}</span>`;
+  return formattedMatch;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+const analyzeButton = document.getElementById("analyzeButton");
+analyzeButton.addEventListener("click", function() {
+  detailedList = mainP;
+  const passageTextElement = document.getElementById("passage-text");
+  const passageText = passageTextElement.innerHTML;
+  let formattedText = passageText;
+
+  for (const word of detailedList) {
+    const regex = new RegExp(`\\b${word}\\b`, 'gi');
+    formattedText = formattedText.replace(regex, match => {
+      return format(match);
+    });
+  }
+
+  passageTextElement.innerHTML = formattedText;
 })});
