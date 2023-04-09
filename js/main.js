@@ -85,56 +85,6 @@ const mainp = "I resisted all the way: a new thing for me, and a circumstance wh
 module.exports = mainp;
 }
 
-
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-getpass();
-const formattingText = document.getElementById("formatting-text");
-const hcheck = document.getElementById("h");
-const ucheck = document.getElementById("u");
-const bcheck = document.getElementById("b");
-const highlightCheckbox = document.querySelector("input[value='highlight']");
-const underlineCheckbox = document.querySelector("input[value='underline']");
-const boldCheckbox = document.querySelector("input[value='bold']");
-let formattedText = "Formatting:";
-let formattingStyles = "";
-
-hcheck.addEventListener('change', (event) => {
-  if (highlightCheckbox.checked) {
-    const highlightColor = document.querySelector("[data-formatting-option='highlight']").value;
-    formattingStyles += `background-color:${highlightColor};`;
-    if (formattingStyles) {
-      formattedText = `<span style="${formattingStyles}">${formattedText}</span>`;
-    }
-  formattingText.innerHTML = formattedText;
-  }});
-
-ucheck.addEventListener('change', (event) => {
-  if (underlineCheckbox.checked) {
-    const underlineColor = document.querySelector("[data-formatting-option='underline']").value;
-    formattingStyles += `text-decoration:underline; text-decoration-color:${underlineColor};`;
-    if (formattingStyles) {
-      formattedText = `<span style="${formattingStyles}">${formattedText}</span>`;
-    }
-  formattingText.innerHTML = formattedText;
-  }});
-
-bcheck.addEventListener('change', (event) => {
-  if (boldCheckbox.checked) {
-    const textColor = document.querySelector("[data-formatting-option='bold']").value;
-    formattingStyles += `color:${textColor};font-weight:bold;`;
-    if (formattingStyles) {
-      formattedText = `<span style="${formattingStyles}">${formattedText}</span>`;
-    }
-  formattingText.innerHTML = formattedText;
-  }});
-});
-
-
 /*
 const applyButton = document.getElementById("applyButton");
 applyButton.addEventListener("click", function() {
