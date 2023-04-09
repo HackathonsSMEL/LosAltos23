@@ -1,5 +1,5 @@
 //configuring openAIapikey
-const api = require('./js/config.js');;
+const api = require('./js/config.js');
 
 /* // Create an empty string to store highlighted text
 console.log("efwoinewoewi");
@@ -23,7 +23,7 @@ document.addEventListener('mouseup', highlightText); */
 
 
 
-const { Configuration, OpenAIApi } = require("openai");
+//const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
 apiKey: api,
 });
