@@ -1,5 +1,10 @@
 //configuring openAIapikey
 const api = require('./js/config.js');;
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+apiKey: api,
+});
+const openai = new OpenAIApi(configuration);
 
 /* // Create an empty string to store highlighted text
 console.log("efwoinewoewi");
@@ -20,35 +25,40 @@ const highlightText=()=> {
 // Add event listeners to daetect mouseup and mousedown events
 document.addEventListener('mouseup', highlightText); */
 
+const getPostTitles = require('./js/test.js');
 
+let passage;
 
-
-const { Configuration, OpenAIApi } = require("openai");
-const configuration = new Configuration({
-apiKey: api,
-});
-const openai = new OpenAIApi(configuration);
-
-//function to return the passage with the most important parts "highlighted"
+getPostTitles().then((postTitle) => {
+	console.log(postTitle);
+  passage = postTitle;
+  //function to return the passage with the most important parts "highlighted"
 async function return_important() {
-const highlightedText = await require('./js/test.js');
-const passage = highlightedText;
-const importantWords = [];
-const completion = await openai.createCompletion({
-model: "text-davinci-003",
-prompt: "return only the parts of the passage, 2 - 5 words, that are important in one line seperated by a newline" + passage,
-temperature: 0,
-max_tokens: 200,
+  const importantWords = [];
+  const completion = await openai.createCompletion({
+  model: "text-davinci-003",
+  prompt: "return only the parts of the passage, 2 - 5 words, that are important in one line seperated by a newline" + passage,
+  temperature: 0,
+  max_tokens: 200,
+  });
+  
+  const text = completion.data.choices[0].text;
+  const lines = text.split('\n');
+  lines.forEach(line => importantWords.push(line));
+  importantWords.splice(0,2);
+  console.log(completion.data.choices[0].text);
+  return importantWords;
+  
+  }
+  return_important();
+	// Use the postTitle value here
+}).catch((error) => {
+	console.error(error);
 });
 
-const text = completion.data.choices[0].text;
-const lines = text.split('\n');
-lines.forEach(line => importantWords.push(line));
-importantWords.splice(0,2);
-console.log(completion.data.choices[0].text);
-return importantWords;
 
-}
+
+
 
 /* function highlightImportantParts() {
   const text = mainP;
@@ -66,4 +76,3 @@ return importantWords;
 } */
 //run "return_important"
 
-return_important();

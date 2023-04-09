@@ -19,12 +19,16 @@ const getPostTitles = async () => {
 		throw error;
 	}
 };
-
-
+/* 
 getPostTitles()
-  .then((postTitles) => {
-    const titlesArray = postTitles;
-    console.log(titlesArray);
-    module.exports = titlesArray;
-  });
+.then((postTitles) => {
+  const titlesArray = postTitles;
+  console.log(titlesArray);
+}); */
+
+module.exports = getPostTitles;
+
+
+
+   
 
