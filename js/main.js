@@ -1,8 +1,3 @@
-
-//getting the variables
-const mainP = require('./getpassage.js');
-const api = require('./config.js');
-
 //configuring openAIapikey
 const { Configuration, OpenAIApi } = require("openai");
 const passage = mainP
