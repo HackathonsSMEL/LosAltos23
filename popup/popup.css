@@ -52,18 +52,11 @@ body {
   75% { transform: rotate(5deg); }
   100% { transform: rotate(0deg); }
  }
- #startAnalysis {
-   animation: shake 1s ease;
- }
- #applyButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
  #applyButton {
-   animation: shake 1s ease;
- }
+  animation: shake 1s ease;
+}
+
  #formatting-options {
   margin-top: 20px;
   text-align: left;
