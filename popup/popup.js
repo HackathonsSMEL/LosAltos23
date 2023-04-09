@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-const mainP = require('./getpassage.js');
-const key_words = require('./main.js');
-=======
-//const mainP = require('./getpassage.js');
-const mainP = "1";
->>>>>>> 8a28ca466bbe378fee5e0d635a2b3d1d6464235c
+/* const mainP = require('./getpassage.js');
+const key_words = require('./main.js'); */
 
+const mainP = "ewifjewpf";
+let key_words = ['ew']
 /*
 function format(passageText) {
   const formattingText = document.getElementById("formatting-text");

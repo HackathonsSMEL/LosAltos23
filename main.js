@@ -1,12 +1,9 @@
 //configuring openAIapikey
-const api = require('./config.js');
+const api = window.apiKey;
 
 // Create an empty string to store highlighted text
 console.log("efwoinewoewi");
 var highlightedText = '';
-
-// Add event listeners to daetect mouseup and mousedown events
-document.addEventListener('mouseup', highlightText);
 
 // Function to handle mouseup event
 const highlightText=()=> {
@@ -19,6 +16,10 @@ const highlightText=()=> {
     highlightedText += text; // add a newline character to separate multiple highlights
     console.log(highlightedText);
 }
+
+// Add event listeners to daetect mouseup and mousedown events
+document.addEventListener('mouseup', highlightText);
+
 
 const { Configuration, OpenAIApi } = require("openai");
 const passage = highlightedText
