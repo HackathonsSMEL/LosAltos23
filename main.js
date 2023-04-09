@@ -1,16 +1,13 @@
-
 //configuring openAIapikey
-//const api = require('./js/config.js');;
-//const { Configuration, OpenAIApi } = require("openai");
-//const configuration = new Configuration({
-//apiKey: api,
-//});
-//const openai = new OpenAIApi(configuration);
-
+const api = require('./js/config.js');;
+const { Configuration, OpenAIApi } = require("openai");
+const configuration = new Configuration({
+apiKey: api,
+});
+const openai = new OpenAIApi(configuration);
 /* // Create an empty string to store highlighted text
 console.log("efwoinewoewi");
 var highlightedText = '';
-
 // Function to handle mouseup event
 const highlightText=()=> {
     highlightedText = '';
@@ -22,60 +19,38 @@ const highlightText=()=> {
     highlightedText += text; // add a newline character to separate multiple highlights
     console.log(highlightedText);
 }
-
 // Add event listeners to daetect mouseup and mousedown events
 document.addEventListener('mouseup', highlightText); */
 
-<<<<<<< HEAD
 const getPostTitles = require('./js/getpassage.js');
-=======
-//const getPostTitles = require('./js/test.js');
->>>>>>> 24a99910a4323d656434992d2e1c10264fff1dee
 
 let passage;
 
-//const { Configuration, OpenAIApi } = require("openai");
-//const configuration = new Configuration({
-//apiKey: api,
-//});
-//const openai = new OpenAIApi(configuration);
-
-//function to return the passage with the most important parts "highlighted"
-//getPostTitles().then((postTitle) => {
-	//console.log(postTitle);
-  //passage = postTitle;
+getPostTitles().then((postTitle) => {
+	console.log(postTitle);
+  passage = postTitle;
   //function to return the passage with the most important parts "highlighted"
-//async function return_important() {
-  //const importantWords = [];
-  //const completion = await openai.createCompletion({
-  //model: "text-davinci-003",
-  //prompt: "return only the parts of the passage, 2 - 5 words, that are important in one line seperated by a newline" + passage,
-  //temperature: 0,
-  //max_tokens: 200,
-  //});
+  async function return_important() {
+    const importantWords = [];
+    const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: "return only the parts of the passage, 2 - 5 words, that are important in one line seperated by a newline" + passage,
+    temperature: 0,
+    max_tokens: 200,
+    });
   
-  //const text = completion.data.choices[0].text;
-  //const lines = text.split('\n');
-  //lines.forEach(line => importantWords.push(line));
-  //importantWords.splice(0,2);
-  //console.log(completion.data.choices[0].text);
-  //return importantWords;
-  
-  //}
-  //return_important();
+    const text = completion.data.choices[0].text;
+    const lines = text.split('\n');
+    lines.forEach(line => importantWords.push(line));
+    importantWords.splice(0,2);
+    console.log(completion.data.choices[0].text);
+    return importantWords;
+  }
+  return_important();
 	// Use the postTitle value here
-<<<<<<< HEAD
 }).catch((error) => {
-	console.error(error);migg
+	console.error(error);
 });
-=======
-//}).catch((error) => {
-	//console.error(error);
-//});
->>>>>>> 24a99910a4323d656434992d2e1c10264fff1dee
-
-
-
 
 
 /* function highlightImportantParts() {
@@ -93,4 +68,3 @@ let passage;
   return importantWords;
 } */
 //run "return_important"
-
