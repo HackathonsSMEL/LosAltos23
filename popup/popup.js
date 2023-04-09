@@ -1,6 +1,8 @@
+const getpassage = require("js/getpassage.js");
 document.addEventListener("DOMContentLoaded", function() {
 const applyButton = document.getElementById("applyButton");
 applyButton.addEventListener("click", function() {
+  getpassage.getpass();
   const formattingText = document.getElementById("formatting-text");
   const highlightCheckbox = document.querySelector("input[value='highlight']");
   const underlineCheckbox = document.querySelector("input[value='underline']");
@@ -26,7 +28,7 @@ applyButton.addEventListener("click", function() {
   console.log(formattedText);
 });})
 
-export function applyButtonClickListenerGeneral(passage) {
+/* export function applyButtonClickListenerGeneral(passage) {
   const formattingText = passage
   const highlightCheckbox = document.querySelector("input[value='highlight']");
   const underlineCheckbox = document.querySelector("input[value='underline']");
@@ -50,12 +52,12 @@ export function applyButtonClickListenerGeneral(passage) {
   }
   formattingText.innerHTML = formattedText;
   console.log(formattedText);
-}
+} */
 
-document.addEventListener("DOMContentLoaded", function() {
+/* document.addEventListener("DOMContentLoaded", function() {
   const applyButton = document.getElementById("applyButton");
   applyButton.addEventListener("click", applyButtonClickListener);
-});
+}); */
 
 
 
@@ -69,9 +71,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
+/* document.addEventListener("DOMContentLoaded", function() {
 const applyButton = document.getElementById("applyButton");
 startAnalyze.addEventListener("click", function() {
 
-})});
+})
+}); */
 
