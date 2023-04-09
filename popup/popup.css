@@ -12,8 +12,8 @@ body {
 }
  #popup-window {
   margin: auto;
-  max-height: 200px;
-  max-width: 300px;
+  max-height: 110px;
+  max-width: 280px;
   padding: 20px;
   text-align: center;
  }
@@ -59,8 +59,9 @@ body {
   100% { transform: rotate(0deg); }
  }
 
- #applyButton {
-  animation: shake .5s ease;
+
+ #analyzeButton {
+  font-family: 'Bree Serif', sans-serif;
 }
 
  #formatting-options {

@@ -3,10 +3,14 @@
     "name": "Read Better",
     "description": "Uses ML to highlight important parts of passages",
     "version": "1.0",
-    "background": {
-        "service_worker": "js/main.js"
-  
-      },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+    "js": ["js/main.js"]
+      }
+],
     "action": {
       "default_popup": "popup/popup.html"
 
