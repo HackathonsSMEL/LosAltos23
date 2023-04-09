@@ -1,143 +1,74 @@
-/* const mainP = require('./getpassage.js');
-const key_words = require('./main.js'); */
+let key_words = [" remind ", " dares ", " sense ", " suffrage", "subarctic", "warmer", "shrinking"];
+let formattingStyles = [];
 
-const mainP = "ewifjewpf";
-let key_words = ['ew']
-/*
-function format(passageText) {
-  const formattingText = document.getElementById("formatting-text");
-  const hcheck = document.getElementById("h");
-  const ucheck = document.getElementById("u");
-  const bcheck = document.getElementById("b");
-  const highlightCheckbox = document.querySelector("input[value='highlight']");
-  const underlineCheckbox = document.querySelector("input[value='underline']");
-  const boldCheckbox = document.querySelector("input[value='bold']");
-  formattingText = i;
-  formattingStyles = "";
-  const updateFormatting = () => {
+document.addEventListener("DOMContentLoaded", function () {
+  const analyzeButton = document.getElementById("analyzeButton");
+  analyzeButton.addEventListener("click", function () {
+    const formattingStyles = [];
+    const highlightCheckbox = document.querySelector(
+      "input[value='highlight']"
+    );
+    const underlineCheckbox = document.querySelector(
+      "input[value='underline']"
+    );
+    const boldCheckbox = document.querySelector("input[value='bold']");
+
     if (highlightCheckbox.checked) {
-      const highlightColor = document.querySelector("[data-formatting-option='highlight']").value;
-      formattingStyles += `background-color:${highlightColor};`;
+      const highlightColor = document.querySelector(
+        "[data-formatting-option='highlight']"
+      ).value;
+      formattingStyles.push(`background-color:${highlightColor}`);
     }
     if (underlineCheckbox.checked) {
-      const underlineColor = document.querySelector("[data-formatting-option='underline']").value;
-      formattingStyles += `text-decoration:underline; text-decoration-color:${underlineColor};`;
+      const underlineColor = document.querySelector(
+        "[data-formatting-option='underline']"
+      ).value;
+      formattingStyles.push(
+        `text-decoration:underline; text-decoration-color:${underlineColor}`
+      );
     }
     if (boldCheckbox.checked) {
-      const textColor = document.querySelector("[data-formatting-option='bold']").value;
-      formattingStyles += `color:${textColor};font-weight:bold;`;
-    }
-    formattedText = `<span style="${formattingStyles}">${formattedText}</span>`;
-    formattingText.innerHTML = formattedText;
-  };
-
-  hcheck.addEventListener('change', (event) => {
-    if (highlightCheckbox.checked || underlineCheckbox.checked || boldCheckbox.checked) {
-      updateFormatting();
-    } else {
-      formattedText = "Formatting:";
-      formattingStyles = "";
-      formattingText.innerHTML = formattedText;
-    }
-  });
-
-  ucheck.addEventListener('change', (event) => {
-    if (highlightCheckbox.checked || underlineCheckbox.checked || boldCheckbox.checked) {
-      updateFormatting();
-    } else {
-      formattedText = "Formatting:";
-      formattingStyles = "";
-      formattingText.innerHTML = formattedText;
-    }
-  });
-
-  bcheck.addEventListener('change', (event) => {
-    if (highlightCheckbox.checked || underlineCheckbox.checked || boldCheckbox.checked) {
-      updateFormatting();
-    } else {
-      formattedText = "Formatting:";
-      formattingStyles = "";
-      formattingText.innerHTML = formattedText;
-    }
-  });
-}
-
-
-document.addEventListener("DOMContentLoaded", function() {
-const analyzeButton = document.getElementById("analyzeButton");
-analyzeButton.addEventListener("click", function() {
-  detailedList = mainP;
-  const passageText = document.getElementById("passage-text").innerHTML;
-  let formattedText = passageText;
-  for (const word of detailedList) {
-    const regex = new RegExp(`\\b${word}\\b`, 'gi');
-    formattedText = formattedText.replace(regex, match => {
-      return format(match);
-    });
-  }
-  document.getElementById("passage-text").innerHTML = formattedText;
-})});
-*/
-
-function format(match) {
-  const formattingStyles = [];
-  const highlightCheckbox = document.querySelector("input[value='highlight']");
-  const underlineCheckbox = document.querySelector("input[value='underline']");
-  const boldCheckbox = document.querySelector("input[value='bold']");
-
-  if (highlightCheckbox.checked) {
-    const highlightColor = document.querySelector("[data-formatting-option='highlight']").value;
-    formattingStyles.push(`background-color:${highlightColor}`);
-  }
-  if (underlineCheckbox.checked) {
-    const underlineColor = document.querySelector("[data-formatting-option='underline']").value;
-    formattingStyles.push(`text-decoration:underline; text-decoration-color:${underlineColor}`);
-  }
-  if (boldCheckbox.checked) {
-    const textColor = document.querySelector("[data-formatting-option='bold']").value;
-    formattingStyles.push(`color:${textColor};font-weight:bold`);
-  }
-
-  const formattedMatch = `<span style="${formattingStyles.join(';')}">${match}</span>`;
-  return formattedMatch;
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-  const analyzeButton = document.getElementById("analyzeButton");
-  analyzeButton.addEventListener("click", function() {
-    let formattedPassage = '';
-    let lastIndex = 0;
-
-    for (const word of key_words) {
-      const regex = new RegExp(`\\b${word}\\b`, 'gi');
-      const match = mainP.match(regex);
-
-      if (match) {
-        const formattedMatch = format(match[0]);
-        const startIndex = mainP.indexOf(match[0], lastIndex);
-        const formattedPart = mainP.substring(lastIndex, startIndex) + formattedMatch;
-
-        formattedPassage += formattedPart;
-        lastIndex = startIndex + match[0].length;
-      }
+      const textColor = document.querySelector(
+        "[data-formatting-option='bold']"
+      ).value;
+      formattingStyles.push(`color:${textColor};font-weight:bold`);
     }
 
-    formattedPassage += mainP.substring(lastIndex);
-    const formattedHTML = `<p>${formattedPassage}</p>`;
+    let innerCSS = formattingStyles.join(";");
 
     // Get the current tab's ID
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       const tabId = tabs[0].id;
 
-      // Insert the CSS to apply the styles to the formatted HTML
-      chrome.tabs.insertCSS(tabId, {
-        code: `p { font-size: 16px; } span { ${formattingStyles.join(';')} }`
-      });
+      //console.log(formattingStyles);
 
-      // Inject the formatted HTML into the current tab
-      chrome.tabs.executeScript(tabId, {
-        code: `document.body.innerHTML = '${formattedHTML}';`
+      chrome.scripting.insertCSS({
+        target: { tabId: tabId },
+        css: ".underlineFunny {"+innerCSS+" }",
       });
+      // Execute a content script to get the text content of the current tab
+      chrome.scripting
+        .executeScript({
+          args: [key_words],
+          target: {
+            tabId: tabId,
+          },
+          func: what,
+        })
+        .then(() => {
+          //console.log("Executed content script");
+        });
     });
   });
 });
+
+function what(key_words) {
+  let text = document.body.innerHTML;
+  for (const word of key_words) {
+    text = text.replaceAll(
+      word,
+      '<span class="underlineFunny">' + word + "</span>"
+    );
+  }
+  document.body.innerHTML = text;
+}
