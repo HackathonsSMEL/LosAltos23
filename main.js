@@ -1,7 +1,7 @@
 //configuring openAIapikey
-const api = window.apiKey;
+const api = require('./js/config.js');;
 
-// Create an empty string to store highlighted text
+/* // Create an empty string to store highlighted text
 console.log("efwoinewoewi");
 var highlightedText = '';
 
@@ -18,11 +18,12 @@ const highlightText=()=> {
 }
 
 // Add event listeners to daetect mouseup and mousedown events
-document.addEventListener('mouseup', highlightText);
+document.addEventListener('mouseup', highlightText); */
+
+
 
 
 const { Configuration, OpenAIApi } = require("openai");
-const passage = highlightedText
 const configuration = new Configuration({
 apiKey: api,
 });
@@ -30,6 +31,8 @@ const openai = new OpenAIApi(configuration);
 
 //function to return the passage with the most important parts "highlighted"
 async function return_important() {
+const highlightedText = await require('./js/test.js');
+const passage = highlightedText;
 const importantWords = [];
 const completion = await openai.createCompletion({
 model: "text-davinci-003",
@@ -42,9 +45,9 @@ const text = completion.data.choices[0].text;
 const lines = text.split('\n');
 lines.forEach(line => importantWords.push(line));
 importantWords.splice(0,2);
+console.log(completion.data.choices[0].text);
 return importantWords;
 
-//return(completion.data.choices[0].text);
 }
 
 /* function highlightImportantParts() {
@@ -53,7 +56,7 @@ return importantWords;
       const highlightedText = text.replace(new RegExp(highlights), `|${highlights}|`);
     console.log(highlightedText)
   });
-} */
+} 
 /* async function logImportantWords() {
   const importantWords = await return_important();
   for (let i = 0; i < importantWords.length; i++) {
