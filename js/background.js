@@ -1,3 +1,5 @@
+//import { applyButtonClickListenerGeneral } from './popup.js';
+
 //getting the variables
 const mainP = require('./getpassage.js');
 const api = require('./config.js');
@@ -24,11 +26,23 @@ return(completion.data.choices[0].text);
 
  function highlightImportantParts() {
     const text = mainP;
+    
     return_important().then(highlights => {
-        const highlightedText = text.replace(new RegExp(highlights), `|${highlights}|`);
-      //console.log(highlightedText)
+        const highlightedText = text.replace(new RegExp(highlights), applyButtonClickListenerGeneral(highlights));
+        //const highlightedText = text.replace(new RegExp(highlights), `|${highlights}|`);
+      console.log(highlightedText)
     });
   }
 
 //run "return_important"
 highlightImportantParts();
+
+
+
+
+/* for (let i = 0; i < highlights.length; i++) {
+  document.addEventListener("DOMContentLoaded", function() {
+    const startAnalyze = document.getElementById("startAnalyze");
+    startAnalyze.addEventListener("click", function() {
+      applyButtonClickListener();
+    })})}; */
