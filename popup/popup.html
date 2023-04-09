@@ -1,41 +1,49 @@
 <!DOCTYPE html>
 <html>
-<head>
- <title style="fony-family: Bree Serif">ReadBetter</title>
- <link rel="stylesheet" type="text/css" href="popup.css">
-</head>
+  <head>
+    <title>
+      <img src="logofinal.png" alt="logo">
+    </title>
+    <link rel="stylesheet" type="text/css" href="popup.css">
+  </head>
 <body>
+  <header style="position: relative;">
+    <img src="../logofinal.png" alt="logo" style="position: absolute; bottom:80px; left:22px; z-index: 9999;">
+  </header>
  <script src="js/main.js"></script>
  <script src="popup.js"></script>
  <script src="popupSetup.js"></script>
  <div id="popup-window">
-   <h1 id="title">ReadBetter</h1>
+  <!--  <h1 id="title">ReadBetter</h1> -->
    <h1 id="changing-text" style="font-weight: lighter;">Make reading immersive and practical!</h1>
    <button id="analyzeButton">Analyze</button>
    <div id="formatting-options">
     <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
     <p id="formatting-text" style="color: rgb(0, 0, 0);">Formatting:</p>
-     <div class="option" style="color: black;">
+    <div class="option" style="color: black; text-align: center;">
       <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
-       <label style="display: flex; align-items: left; position: absolute; left: 22.207589px;">
-         <input id="h" type="checkbox" name="formatting-option" value="highlight"><mark style="background-color:rgb(204, 204, 63)">Highlight</mark>
-       </label>
-       <input type="color" classname="formatting-color" data-formatting-option="highlight">
-     </div>
-     <div class="option" style="color: black;">
+      <label style="display: flex; align-items: left; position: absolute; left: 22.207589px;">
+        <input id="h" type="checkbox" name="formatting-option" value="highlight"><mark style="background-color:rgb(204, 204, 63)">Highlight</mark>
+      </label>
+      <input type="color" classname="formatting-color" data-formatting-option="highlight">
+    </div>
+    <div class="option" style="color: black; text-align: center;">
       <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
-       <label style="display: flex; align-items: left; position: absolute; left: 23px;">
-         <input id="u" type="checkbox" name="formatting-option" value="underline"><u>Underline</u>
-       </label>
-       <input type="color" classname="formatting-color" data-formatting-option="underline">
-     </div>
-     <div class="option" style="color: black;">
+      <label style="display: flex; align-items: left; position: absolute; left: 23px;">
+        <input id="u" type="checkbox" name="formatting-option" value="underline"><u>Underline</u>
+      </label>
+      <input type="color" classname="formatting-color" data-formatting-option="underline">
+    </div>
+    <div class="option" style="color: black; text-align: center;">
       <link href='https://fonts.googleapis.com/css?family=Bree Serif' rel='stylesheet'>
-       <label style="display: flex; align-items: left; position: absolute; left: 8px;">
-         <input id="b" type="checkbox" name="formatting-option" value="bold"><b>Bold</b>
-       </label>
-       <input type="color" classname="formatting-color" data-formatting-option="bold">
-     </div>
+      <label style="display: flex; align-items: left; position: absolute; left: 8px;">
+        <input id="b" type="checkbox" name="formatting-option" value="bold"><b>Bold</b>
+      </label>
+      <input type="color" classname="formatting-color" data-formatting-option="bold">
+    </div>
+    
+    <div class="option
+    
    </div>
    <div id="cool-elements"></div>
  </div>
