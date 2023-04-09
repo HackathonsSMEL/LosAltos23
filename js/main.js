@@ -45,11 +45,6 @@ highlightImportantParts();
 
 
 
-
-
-
-
-
 function getpass() {
 console.log("poo");
 chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
