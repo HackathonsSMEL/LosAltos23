@@ -1,4 +1,4 @@
-const mainP = require('./main.js');
+const mainP = require('./getpassage.js');
 
 /*
 function format(passageText) {

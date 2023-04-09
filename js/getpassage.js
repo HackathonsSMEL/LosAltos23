@@ -13,6 +13,9 @@ function highlightText() {
     // Save the string to Chrome storage
     chrome.storage.local.set({'highlightedText': highlightedText});
 }
+highlightText();
+module.exports = highlighhtedText;
+
 
 // Function to handle mousedown event
 function clearHighlight() {
