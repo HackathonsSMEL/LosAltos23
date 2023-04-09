@@ -15,7 +15,7 @@ function highlightText() {
     highlightedText += text; // add a newline character to separate multiple highlights
 }
 highlightText();
-module.exports = highlighhtedText;
+module.exports = highlightedText;
 
 
 // Function to handle mousedown event
