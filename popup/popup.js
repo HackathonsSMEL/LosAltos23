@@ -1,8 +1,8 @@
 let key_words = [
-  " remind ",
+  " and ",
   " dares ",
   " sense ",
-  " suffrage",
+  " suffrage ",
   "subarctic",
   "warmer",
   "shrinking",
@@ -47,9 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get the current tab's ID
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       const tabId = tabs[0].id;
-
-      //console.log(formattingStyles);
-
       chrome.scripting.insertCSS({
         target: { tabId: tabId },
         css: ".underlineFunny {" + innerCSS + " }",
@@ -64,7 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
           func: what,
         })
         .then(() => {
-          //console.log("Executed content script");
         });
     });
   });

@@ -6,7 +6,6 @@ apiKey: api,
 });
 const openai = new OpenAIApi(configuration);
 /* // Create an empty string to store highlighted text
-console.log("efwoinewoewi");
 var highlightedText = '';
 // Function to handle mouseup event
 const highlightText=()=> {
