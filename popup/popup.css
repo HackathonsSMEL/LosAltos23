@@ -1,131 +1,130 @@
 
 body {
-  border: 3px solid black;
-  background-color: white;
-  color: #fff;
-  font-family: "Bree Serif", Courier, monospace;
-  width: 300px;
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
- #popup-window {
-  margin: auto;
-  max-height: 110px;
-  max-width: 280px;
-  padding: 20px;
-  text-align: center;
- }
- title {
-  font-size: 22px;
-  text-decoration-color: #b8cee4;
-  align-self: top;
- }
- h1 {
-  color: black;
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 20px;
- }
- button {
-  background-color: rgb(0, 0, 0);
-  color: #e0e0e0;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
-  transition: 0.7s;
-  animation: shake 1s ease;
- }
- button:hover {
-  background-color: #5a697b;
-  color: #e0e0e0;
-  transition: 0.2s;
-  
-  animation: shake 1s ease;
- }
- button.animate {
-  animation: shake 1s ease;
- }
- @keyframes shake {
-  0% { transform: rotate(0deg); }
-  20% { transform: rotate(5deg); }
-  40% { transform: rotate(-5deg); }
-  60% { transform: rotate(2.5deg); }
-  80% { transform: rotate(-2.5deg); }
-  100% { transform: rotate(0deg); }
+border: 3px solid black;
+background-color: white;
+color: #fff;
+font-family: "Bree Serif", Courier, monospace;
+width: 300px;
+height: 400px;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
-
-
- #analyzeButton {
-  font-family: 'Bree Serif', sans-serif;
-
+#popup-window {
+margin: auto;
+max-height: 110px;
+max-width: 280px;
+padding: 20px;
+text-align: center;
 }
 
- #formatting-options {
-  margin-top: 20px;
-  text-align: left;
- }
- 
- 
- .option {
-  display: flex;
-  align-items: center;
-  margin: 10px;
-  justify-content: space-between;
- }
- .option label {
-  display: flex;
-  align-items: center;
-  width: 150px;
-  vertical-align: middle;
- }
- 
- 
- .option input[type="checkbox"] {
-  display: flex;
-  border: 1px black;
-  align-items: center;
-  width: 200px;
-  margin: 10px;
-  vertical-align: middle;
- }
+title {
+font-size: 22px;
+text-decoration-color: #b8cee4;
+align-self: top;
+}
 
- .option input[type="formatting-text"] {
-  color: black
- }
+h1 {
+color: black;
+font-size: 16px;
+margin-top: 0;
+margin-bottom: 20px;
+}
 
- .option input[type="label"] {
-  color: black
- }
+button {
+background-color: rgb(0, 0, 0);
+color: #e0e0e0;
+border: none;
+padding: 10px 16px;
+border-radius: 5px;
+cursor: pointer;
+display: inline-block;
+font-size: 16px;
+border-radius: 12px;
+transition: 0.7s;
+animation: shake 1s ease;
+}
 
- .option input[type="color"] {
-  width: 16px;
-  height: 16px;
-  border: none;
-  border-radius: 50%;
-  vertical-align: middle;
-  margin-left: 175px;
-  cursor: pointer;
-  padding: 0;
-  appearance: none;
-  vertical-align: middle;
-  background-color: #000; /* replace with desired default color */
+button:hover {
+background-color: #5a697b;
+color: #e0e0e0;
+transition: 0.2s;
+animation: shake 1s ease;
+}
+
+button.animate {
+animation: shake 1s ease;
+}
+
+@keyframes shake {
+0% { transform: rotate(0deg); }
+20% { transform: rotate(5deg); }
+40% { transform: rotate(-5deg); }
+60% { transform: rotate(2.5deg); }
+80% { transform: rotate(-2.5deg); }
+100% { transform: rotate(0deg); }
+}
+
+#analyzeButton {
+font-family: 'Bree Serif', sans-serif;
+}
+
+#formatting-options {
+margin-top: 20px;
+text-align: left;
+}
+
+.option {
+display: flex;
+align-items: center;
+margin: 10px;
+justify-content: space-between;
+}
+
+.option label {
+display: flex;
+align-items: center;
+width: 150px;
+vertical-align: middle;
+}
+
+.option input[type="checkbox"] {
+display: flex;
+border: 1px black;
+align-items: center;
+width: 200px;
+margin: 10px;
+vertical-align: middle;
+}
+
+.option input[type="formatting-text"] {
+color: black
+}
+
+.option input[type="label"] {
+color: black
+}
+
+.option input[type="color"] {
+width: 16px;
+height: 16px;
+border: none;
+border-radius: 50%;
+vertical-align: middle;
+margin-left: 175px;
+cursor: pointer;
+padding: 0;
+appearance: none;
+vertical-align: middle;
+background-color: #000; /* replace with desired default color */
 }
 
 .option input[type="color"]::-webkit-color-swatch-wrapper {
-  padding: 0;
+padding: 0;
 }
 
 .option input[type="color"]::-webkit-color-swatch {
-  border: none;
-  border-radius: 50%;
+border: none;
+border-radius: 50%;
 }
-
- 
- 

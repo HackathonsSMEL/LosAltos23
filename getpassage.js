@@ -27,8 +27,3 @@ getPostTitles()
 }); */
 
 module.exports = getPostTitles;
-
-
-
-   
-
