@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const analyzeButton = document.getElementById("analyzeButton");
   analyzeButton.addEventListener("click", function () {
     const formattingStyles = [];
+
     const highlightCheckbox = document.querySelector(
       "input[value='highlight']"
     );
@@ -43,6 +44,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     let innerCSS = formattingStyles.join(";");
+
+    //clear button
 
     // Get the current tab's ID
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
