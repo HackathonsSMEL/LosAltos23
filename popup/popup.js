@@ -1,4 +1,12 @@
-let key_words = [" remind ", " dares ", " sense ", " suffrage", "subarctic", "warmer", "shrinking"];
+let key_words = [
+  " remind ",
+  " dares ",
+  " sense ",
+  " suffrage",
+  "subarctic",
+  "warmer",
+  "shrinking",
+];
 let formattingStyles = [];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       chrome.scripting.insertCSS({
         target: { tabId: tabId },
-        css: ".underlineFunny {"+innerCSS+" }",
+        css: ".underlineFunny {" + innerCSS + " }",
       });
       // Execute a content script to get the text content of the current tab
       chrome.scripting
