@@ -5,7 +5,8 @@ const configuration = new Configuration({
 apiKey: api,
 });
 const openai = new OpenAIApi(configuration);
-/* // Create an empty string to store highlighted text
+
+// Create an empty string to store highlighted text
 var highlightedText = '';
 // Function to handle mouseup event
 const highlightText=()=> {
@@ -16,10 +17,9 @@ const highlightText=()=> {
     var text = document.getSelection().text;
   }
     highlightedText += text; // add a newline character to separate multiple highlights
-    console.log(highlightedText);
 }
 // Add event listeners to daetect mouseup and mousedown events
-document.addEventListener('mouseup', highlightText); */
+document.addEventListener('mouseup', highlightText);
 
 const getPostTitles = require('./js/getpassage.js');
 
