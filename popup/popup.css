@@ -5,7 +5,7 @@ background-color: white;
 color: #fff;
 font-family: "Bree Serif", Courier, monospace;
 width: 300px;
-height: 400px;
+height: 450px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -69,7 +69,14 @@ animation: shake 1s ease;
 #analyzeButton {
 font-family: 'Bree Serif', sans-serif;
 }
-
+#clearButton {
+font-family: 'Bree Serif', sans-serif;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-left: 90px;
+}
+  
 #formatting-options {
 margin-top: 20px;
 text-align: left;
