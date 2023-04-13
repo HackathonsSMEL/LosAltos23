@@ -1,16 +1,24 @@
-let key_words = [" remind ", " dares ", " sense ", " suffrage", "subarctic", "warmer", "shrinking"];
+let key_words = [
+  " and ",
+  " dares ",
+  " sense ",
+  " suffrage ",
+  "subarctic",
+  "warmer",
+  "shrinking",
+];
 let formattingStyles = [];
 
 document.addEventListener("DOMContentLoaded", function () {
   const analyzeButton = document.getElementById("analyzeButton");
   analyzeButton.addEventListener("click", function () {
-    const formattingStyles = [];
+    formattingStyles = []; // clear formatting styles before analyzing
+
     const highlightCheckbox = document.querySelector(
       "input[value='highlight']"
     );
     const underlineCheckbox = document.querySelector(
-      "input[value='underline']"
-    );
+      "input[value='underline']");
     const boldCheckbox = document.querySelector("input[value='bold']");
 
     if (highlightCheckbox.checked) {
@@ -39,36 +47,63 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get the current tab's ID
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
       const tabId = tabs[0].id;
-
-      //console.log(formattingStyles);
-
       chrome.scripting.insertCSS({
         target: { tabId: tabId },
-        css: ".underlineFunny {"+innerCSS+" }",
+        css: ".underlineFunny {" + innerCSS + " }",
       });
       // Execute a content script to get the text content of the current tab
       chrome.scripting
         .executeScript({
-          args: [key_words],
+          args: [key_words, formattingStyles],
           target: {
             tabId: tabId,
           },
           func: what,
         })
-        .then(() => {
-          //console.log("Executed content script");
-        });
+        .then(() => {});
     });
+  });
+
+  const clearButton = document.getElementById("clearButton");
+  clearButton.addEventListener("click", function () {
+    // Remove the formatting by removing the inserted CSS
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      const tabId = tabs[0].id;
+      chrome.scripting.insertCSS({
+        target: { tabId: tabId },
+        css: ".underlineFunny { background-color: transparent; text-decoration: none; color: inherit; font-weight: normal; }",
+      });
+    });
+
+    // Clear the formatted text on screen
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      const tabId = tabs[0].id;
+      chrome.scripting.executeScript({
+        target: { tabId: tabId },
+        func: clearFormatting,
+      });
+    });
+
+    formattingStyles = []; // clear formatting styles after clearing
   });
 });
 
-function what(key_words) {
+function what(key_words, formattingStyles) {
   let text = document.body.innerHTML;
   for (const word of key_words) {
     text = text.replaceAll(
       word,
-      '<span class="underlineFunny">' + word + "</span>"
+      '<span class="underlineFunny" style="' + formattingStyles.join(";") + '">' +
+        word +
+        "</span>"
     );
   }
   document.body.innerHTML = text;
+}
+
+function clearFormatting() {
+  let elements = document.getElementsByClassName("underlineFunny");
+  while (elements.length > 0) {
+    elements[0].outerHTML = elements[0].innerHTML;
+  }
 }
