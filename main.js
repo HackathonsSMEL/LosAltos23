@@ -1,28 +1,13 @@
 //configuring openAIapikey
-const api = require('./js/config.js');;
-const { Configuration, OpenAIApi } = require("openai");
+const api = require('./config.js');;
+/* const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
 apiKey: api,
-});
-const openai = new OpenAIApi(configuration);
-/* // Create an empty string to store highlighted text
-console.log("efwoinewoewi");
-var highlightedText = '';
-// Function to handle mouseup event
-const highlightText=()=> {
-    highlightedText = '';
-  // Get the highlighted text and append it to the existing highlightedText string
-  var text = window.getSelection().toString();
-  if (text != "") {
-    var text = document.getSelection().text;
-  }
-    highlightedText += text; // add a newline character to separate multiple highlights
-    console.log(highlightedText);
-}
-// Add event listeners to daetect mouseup and mousedown events
-document.addEventListener('mouseup', highlightText); */
+}); 
+const openai = new OpenAIApi(configuration);*/
 
-const getPostTitles = require('./js/getpassage.js');
+const getPostTitles = require('./getpassage.js');
+
 
 let passage;
 
@@ -32,18 +17,36 @@ getPostTitles().then((postTitle) => {
   //function to return the passage with the most important parts "highlighted"
   async function return_important() {
     const importantWords = [];
-    const completion = await openai.createCompletion({
+    const PROMPT = "return only the parts of the passage, 2 - 5 words, that are important in one line seperated by a newline" + passage;
+    const MAX_TOKENS = 200;
+
+/*     const completion = await openai.createCompletion({
     model: "text-davinci-003",
     prompt: "return only the parts of the passage, 2 - 5 words, that are important in one line seperated by a newline" + passage,
     temperature: 0,
     max_tokens: 200,
+    }); */
+    const response = await fetch(`https://api.openai.com/v1/engines/text-davinci-003/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${api}`
+      },
+      body: JSON.stringify({
+        prompt: PROMPT,
+        max_tokens: MAX_TOKENS,
+        n: 1,
+        stop: '',
+        temperature: 0.5
+      })
     });
+    const completion = await response.json();
   
-    const text = completion.data.choices[0].text;
+    const text = completion.choices[0].text;
     const lines = text.split('\n');
     lines.forEach(line => importantWords.push(line));
     importantWords.splice(0,2);
-    console.log(completion.data.choices[0].text);
+    console.log(completion.choices[0].text);
     return importantWords;
   }
   return_important();
@@ -52,19 +55,3 @@ getPostTitles().then((postTitle) => {
 	console.error(error);
 });
 
-
-/* function highlightImportantParts() {
-  const text = mainP;
-  return_important().then(highlights => {
-      const highlightedText = text.replace(new RegExp(highlights), `|${highlights}|`);
-    console.log(highlightedText)
-  });
-} 
-/* async function logImportantWords() {
-  const importantWords = await return_important();
-  for (let i = 0; i < importantWords.length; i++) {
-    console.log(`Value ${i +1}: ${importantWords[i]}`);
-  }
-  return importantWords;
-} */
-//run "return_important"
