@@ -1,12 +1,12 @@
 let key_words = [
-  " and "
+  " and ",
   /*" dares ",
   " sense ",
   " suffrage ",
   "subarctic",
   "warmer",
   "shrinking",*/
-  /*return_important()*/
+  return_important()
 ];
 let formattingStyles = [];
 
