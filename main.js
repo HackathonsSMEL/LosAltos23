@@ -47,6 +47,7 @@ getPostTitles().then((postTitle) => {
     lines.forEach(line => importantWords.push(line));
     importantWords.splice(0,2);
     console.log(completion.choices[0].text);
+    console.log(importantWords.join('\n'));
     return importantWords;
   }
   return_important();

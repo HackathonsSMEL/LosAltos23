@@ -1,6 +1,6 @@
 let key_words = [
-  /*" and ",
-  " dares ",
+  " and ",
+  /*" dares ",
   " sense ",
   " suffrage ",
   "subarctic",
